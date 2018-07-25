@@ -1,0 +1,39 @@
+{
+  "name": "romelperez.com",
+  "version": "2.0.0",
+  "description": "Romel Pérez personal website",
+  "author": "Romel Pérez (romelperez.com)",
+  "license": "GNUv3",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "deploy": "pm2 startOrRestart deploy.json --env production"
+  },
+  "dependencies": {
+    "@cliener/react-webcam": "^0.3.2",
+    "arwes": "^1.0.0-alpha.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "classnames": "^2.2.5",
+    "emergence.js": "^1.1.2",
+    "express": "^4.16.2",
+    "moment": "^2.20.1",
+    "next": "^4.2.3",
+    "next-routes": "^1.2.0",
+    "polished": "^1.9.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-ga": "^2.4.1",
+    "react-image-file": "^0.3.0",
+    "react-webcam": "^1.0.1",
+    "spectacle": "^4.0.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.16.0",
+    "eslint-plugin-react": "^7.5.1"
+  }
+}
