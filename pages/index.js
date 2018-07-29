@@ -12,6 +12,7 @@ import {
   Loading,
   createLoader,
   createResponsive,
+  Logo,
   utils
 } from 'arwes';
 import Camera from './Camera'
@@ -167,7 +168,6 @@ class WebcamCapture extends React.Component {
               React.createElement('li', {}, "anger: " + anger * 100 + "%"),
               React.createElement('li', {}, "contempt: " + contempt * 100 + "%"),
               React.createElement('li', {}, "disgust: " + disgust * 100 + "%"),
-              React.createElement('li', {}, "disgust: " + disgust * 100 + "%"),
               React.createElement('li', {}, "fear: " + fear * 100 + "%"),
               React.createElement('li', {}, "happiness: " + happiness * 100 + "%"),
               React.createElement('li', {}, "neutral: " + neutral * 100 + "%"),
@@ -232,6 +232,7 @@ class WebcamCapture extends React.Component {
           videoConstraints={videoConstraints}
         />
         </Frame>
+        <div  style={{ margin: '4px 4px, 4px, 4px', align:"left", fontSize: '18px',  height:'10px'}}></div>
         <Button onClick={this.capture} animate>Scan</Button>
         
       </div>
@@ -296,8 +297,8 @@ class Index extends React.Component {
 
             <div className={classes.content}>
 
-              <div className={classes.section} style={{ margin: '0px', align:"left", fontSize: '18px' }}>
-              <WebcamCapture  className={classes.profile}  animate
+              <div className={classes.section} style={{ margin: '0px 4px, 4px, 4px', align:"left", fontSize: '18px' }}>
+              <WebcamCapture className={classes.profile}  animate
                   show={anim.entered}/>
 
                
@@ -371,14 +372,14 @@ class Index extends React.Component {
                                   <Line animate />
 
               <div className={classes.section}>
-                <Link className={classes.detail} href='https://www.linkedin.com/in/romelperez' target='linkedin' onLink={this.onLink}>
-                  <TextIcon className={classes.textIcon} show={anim.entered} icon='code-brackets'>Frontend Engineer SI CHEN</TextIcon>
+              <Link className={classes.detail} href='https://hugeinc.com' target='_blank' onLink={this.onLink}>
+                <TextIcon className={classes.textIcon} show={anim.entered} icon='face'>quake0day</TextIcon>
                 </Link>
-                <Link className={classes.detail} href='https://hugeinc.com' target='_blank' onLink={this.onLink}>
-                  <TextIcon className={classes.textIcon} show={anim.entered} icon='briefcase-outline'>Huge</TextIcon>
+                <Link className={classes.detail} href='https://www.linkedin.com/in/romelperez' target='linkedin' onLink={this.onLink}>
+                  <TextIcon className={classes.textIcon} show={anim.entered} icon='code-brackets'>West Chester University</TextIcon>
                 </Link>
                 <Link className={classes.detail} href='https://www.google.com.co/maps/place/Medellin' target='_blank' onLink={this.onLink}>
-                  <TextIcon className={classes.textIcon} show={anim.entered} icon='map-marker-outline'>Medellin</TextIcon>
+                <Logo animate size={20} /> Computer Science 
                 </Link>
               </div>
 
@@ -388,19 +389,19 @@ class Index extends React.Component {
                     {anim2 => <Words animate show={anim2.entered}>Projects</Words>}
                   </Button>
                 </Link>
-                <Link className={classes.detail} href='https://www.linkedin.com/in/romelperez' target='linkedin' onLink={this.onLink}>
+                <Link className={classes.detail} href='#' target='' onLink={this.onLink}>
                   <Button className={classes.button} animate show={anim.entered}>
-                    {anim2 => <Words animate show={anim2.entered}>Curriculum</Words>}
+                    {anim2 => <Words animate show={anim2.entered}>APP Download</Words>}
                   </Button>
                 </Link>
-                <Link className={classes.detail} href='https://github.com/romelperez' target='github' onLink={this.onLink}>
+                <Link className={classes.detail} href='https://github.com/quake0day' target='github' onLink={this.onLink}>
                   <Button className={classes.button} animate show={anim.entered}>
                     {anim2 => <Words animate show={anim2.entered}>GitHub</Words>}
                   </Button>
                 </Link>
-                <Link className={classes.detail} href='https://twitter.com/romelperez07' target='twitter' onLink={this.onLink}>
+                <Link className={classes.detail} href='https://cs.wcupa.edu/' target='twitter' onLink={this.onLink}>
                   <Button className={classes.button} animate show={anim.entered}>
-                    {anim2 => <Words animate show={anim2.entered}>Twitter</Words>}
+                    {anim2 => <Words animate show={anim2.entered}>Website</Words>}
                   </Button>
                 </Link>
               </div>
