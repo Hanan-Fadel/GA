@@ -1,5 +1,5 @@
 
-
+require('babel-preset-env');
 module.exports = {
   distDir: 'build',
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {

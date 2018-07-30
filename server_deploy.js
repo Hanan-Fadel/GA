@@ -12,8 +12,8 @@ const handler = routes.getRequestHandler(app);
 routes.add('/talks/:talkKey', 'talks');
 
 var sslOption ={
-	key: fs.readFileSync('./elianaai.key'),
-	cert: fs.readFileSync('./4fa581949f17aaa.crt')
+	key: fs.readFileSync('../key/elianaai.key'),
+	cert: fs.readFileSync('../key/4fa581949f17aaa.crt')
 }
 
 app.prepare().then(() =>{
