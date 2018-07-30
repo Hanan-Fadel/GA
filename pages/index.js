@@ -22,7 +22,7 @@ import ReactDOM from 'react-dom';
 
 import withTemplate from '../site/withTemplate';
 import { Link, TextIcon } from '../site/components';
-require('dotenv').load();
+
 
 const azure = require('azure-storage');
 var blobService = azure.createBlobService("DefaultEndpointsProtocol=https;AccountName=facewcu;AccountKey=6cPTAUfLiGlGkinaCCfO6lX396BUFTdckOR7/4IAs8FG35pTS4sGNUlCxwsUibUYNjEQFlbHZc7+mhkvlLXf/g==;EndpointSuffix=core.windows.net");
@@ -37,6 +37,7 @@ blobService.createContainerIfNotExists('wcuphoto', {
     // if result = false, container already existed.
   }
 });
+
 
 const styles = theme => ({
   root: {
@@ -154,6 +155,7 @@ class WebcamCapture extends React.Component {
     var timestamp = Date.now();
     console.log(timestamp);
     var imageName = "profile-pic-"+timestamp+".jpg";
+
     blobService.createBlockBlobFromText('wcuphoto', imageName, buffer, {contentType:type}, function(error, result, response) {
             if (error) {
                 console.log(error);
