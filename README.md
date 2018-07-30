@@ -1,6 +1,4 @@
-# [RomelPerez.com](https://romelperez.com)
-
-Romel Pérez's personal website.
+# ElianaAI @WCU
 
 ## License
 
