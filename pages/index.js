@@ -22,6 +22,21 @@ import ReactDOM from 'react-dom';
 
 import withTemplate from '../site/withTemplate';
 import { Link, TextIcon } from '../site/components';
+require('dotenv').load();
+
+const azure = require('azure-storage');
+var blobService = azure.createBlobService("DefaultEndpointsProtocol=https;AccountName=facewcu;AccountKey=6cPTAUfLiGlGkinaCCfO6lX396BUFTdckOR7/4IAs8FG35pTS4sGNUlCxwsUibUYNjEQFlbHZc7+mhkvlLXf/g==;EndpointSuffix=core.windows.net");
+
+
+blobService.createContainerIfNotExists('wcuphoto', {
+  publicAccessLevel: 'blob'
+}, function(error, result, response) {
+  if (!error) {
+    console.log(result);
+    // if result = true, container was created.
+    // if result = false, container already existed.
+  }
+});
 
 const styles = theme => ({
   root: {
@@ -129,8 +144,24 @@ class WebcamCapture extends React.Component {
 
   capture = () => {
     this.imageSrc = this.webcam.getScreenshot();
+
     this.setState({captured:true});
     let data = this.imageSrc.toString();
+
+    var matches = data.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+    var type = matches[1];
+    var buffer = new Buffer(matches[2], 'base64');
+    var timestamp = Date.now();
+    console.log(timestamp);
+    var imageName = "profile-pic-"+timestamp+".jpg";
+    blobService.createBlockBlobFromText('wcuphoto', imageName, buffer, {contentType:type}, function(error, result, response) {
+            if (error) {
+                console.log(error);
+            }else{
+             console.log(result)
+            }
+        });
+
     let str = data.substring(data.indexOf(",") + 1);
 
     var header = new Headers({
@@ -213,7 +244,8 @@ class WebcamCapture extends React.Component {
       console.log(this.imageSrc);
       button1 = <img src={this.imageSrc} alt='screenshot' height='80' />;
     }
-  */}
+  */ 
+}
     return (
       <div>
         <Frame
@@ -372,19 +404,19 @@ class Index extends React.Component {
                                   <Line animate />
 
               <div className={classes.section}>
-              <Link className={classes.detail} href='https://hugeinc.com' target='_blank' onLink={this.onLink}>
+              <Link className={classes.detail} href='http://www.quake0day.com/' target='_blank' onLink={this.onLink}>
                 <TextIcon className={classes.textIcon} show={anim.entered} icon='face'>quake0day</TextIcon>
                 </Link>
-                <Link className={classes.detail} href='https://www.linkedin.com/in/romelperez' target='linkedin' onLink={this.onLink}>
+                <Link className={classes.detail} href='#' onLink={this.onLink}>
                   <TextIcon className={classes.textIcon} show={anim.entered} icon='code-brackets'>West Chester University</TextIcon>
                 </Link>
-                <Link className={classes.detail} href='https://www.google.com.co/maps/place/Medellin' target='_blank' onLink={this.onLink}>
+                <Link className={classes.detail} href='#' target='_blank' onLink={this.onLink}>
                 <Logo animate size={20} /> Computer Science 
                 </Link>
               </div>
 
               <div className={classes.section}>
-                <Link className={classes.detail} href='/projects' onLink={this.onLink}>
+                <Link className={classes.detail} href='#' onLink={this.onLink}>
                   <Button className={classes.button} animate show={anim.entered}>
                     {anim2 => <Words animate show={anim2.entered}>Projects</Words>}
                   </Button>

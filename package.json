@@ -14,13 +14,18 @@
   "dependencies": {
     "@cliener/react-webcam": "^0.3.2",
     "arwes": "^1.0.0-alpha.5",
+    "azure-storage": "^2.10.0",
+    "azure-storage-fs": "^0.4.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "classnames": "^2.2.5",
+    "dotenv": "^6.0.0",
     "emergence.js": "^1.1.2",
     "express": "^4.16.2",
+    "fs": "0.0.1-security",
     "moment": "^2.20.1",
+    "net": "^1.0.2",
     "next": "^4.2.3",
     "next-routes": "^1.2.0",
     "polished": "^1.9.0",
@@ -29,9 +34,11 @@
     "react-ga": "^2.4.1",
     "react-image-file": "^0.3.0",
     "react-webcam": "^1.0.1",
-    "spectacle": "^4.0.5"
+    "spectacle": "^4.0.5",
+    "tls": "0.0.1"
   },
   "devDependencies": {
+    "dotenv": "^6.0.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.16.0",
     "eslint-plugin-react": "^7.5.1"

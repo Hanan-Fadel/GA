@@ -32,6 +32,7 @@ nbproject
 .node_repl_history
 .vagrant
 .eslintcache
+.env
 
 Thumbs.db
 dump.rdb
